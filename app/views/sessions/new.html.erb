@@ -1,0 +1,29 @@
+<%= tag.div(flash[:alert], style: "color:red") if flash[:alert] %>
+<%= tag.div(flash[:notice], style: "color:green") if flash[:notice] %>
+
+<h2>Log in</h2>
+
+<%= form_with url: session_path do |form| %>
+  <div>
+    <%= form.label :name, "Name" %><br>
+    <%= form.text_field :name, autofocus: true %>
+  </div>
+
+  <div>
+    <%= form.label :password, "Password" %><br>
+    <%= form.password_field :password, autocomplete: "current-password" %>
+  </div>
+
+  <div>
+    <%= form.check_box :remember_me %>
+    <%= form.label :remember_me, "Remember me" %>
+  </div>
+
+  <div>
+    <%= form.submit "Log in" %>
+  </div>
+<% end %>
+
+<!-- リンク群 -->
+<%= link_to "Sign up", new_user_path %><br>
+<%= link_to "Forgot password?", new_password_path %>
